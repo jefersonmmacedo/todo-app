@@ -1,19 +1,19 @@
 const express = require('express');
-const app = express();
+const server = express();
 const bodyParser = require('body-parser');
 const Cors = require('./cors')
 
-app.unsubscribe(bodyParser.urlencoded({extended: true}))
-app.unsubscribe(bodyParser.json())
-app.use(Cors)
+server.use(bodyParser.urlencoded({extended: true}))
+server.use(bodyParser.json())
+server.use(Cors)
 
-app.get('/', (req, res) => {
-    res.send('Serviro Iniciado com sucesso. Show!')
+server.get('/', (req, res) => {
+    res.send('Servidor Iniciado com sucesso. Show!')
 })
 
 
-app.listen('80', (req, res) => {
+server.listen('8080', (req, res) => {
     console.log('Servidor Iniciado!')
 })
 
-module.exports = app
+module.exports = server
